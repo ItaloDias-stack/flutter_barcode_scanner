@@ -142,23 +142,28 @@ public class CameraSourcePreview extends ViewGroup {
             width = right - left;
             height = bottom - top;
         }
-
-        if (mCameraSource != null) {
-            Size size = mCameraSource.getPreviewSize();
-            if (size != null) {
-                width = size.getWidth();
-                height = size.getHeight();
-            }
-        }
-
+        Log.e("directions",left+", "+top+", "+right+", "+bottom);
+        Log.e("size",width+", "+height);
+//        if (mCameraSource != null) {
+//            Size size = mCameraSource.getPreviewSize();
+//            if (size != null) {
+//                Log.e("entrei no 1ª if","");
+//                width = size.getWidth();
+//                height = size.getHeight();
+//            }
+//        }
+//        Log.e("directions2",left+", "+top+", "+right+", "+bottom+"");
+//        Log.e("size2",width+", "+height);
         // Swap width and height sizes when in portrait, since it will be rotated 90 degrees
         if (isPortraitMode()) {
+            Log.e("entrei no 2ª if","");
             int tmp = width;
             //noinspection SuspiciousNameCombination
             width = height;
             height = tmp;
         }
-
+        Log.e("directions3",left+", "+top+", "+right+", "+bottom);
+        Log.e("size3",width+", "+height);
         final int layoutWidth = right - left;
         final int layoutHeight = bottom - top;
 
