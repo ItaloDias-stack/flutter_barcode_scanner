@@ -12,7 +12,7 @@ A new Flutter plugin supports barcode scanning on both Android and iOS.
   s.license          = { :file => '../LICENSE' }
   s.author           = { 'Amol Gangadhare' => 'amol.gangadhare@gmail.com' }
   s.source           = { :path => '.' }
-  s.source_files = 'Classes/**/*.{swift,h,m}'
+  s.source_files = 'Classes/**/*.{swift,h,m,xib}'
   s.public_header_files = 'Classes/**/*.h'
   s.resources = 'Assets/*.png'
   s.dependency 'Flutter'

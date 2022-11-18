@@ -89,7 +89,7 @@ public class SwiftFlutterBarcodeScannerPlugin: NSObject, FlutterPlugin, ScanBarc
         }
         
         pendingResult=result
-        let controller = BarcodeScannerViewController()
+      let controller = BarCodeReaderViewController(nibName: "BarCodeReaderViewController", bundle: Bundle(for: BarCodeReaderViewController.self))
         controller.delegate = self
         
         if #available(iOS 13.0, *) {
@@ -188,30 +188,30 @@ class BarcodeScannerViewController: UIViewController {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-    
+
     /// Create and return flash button
     private lazy var flashIcon : UIButton! = {
         let flashButton = UIButton()
         flashButton.setTitle("Flash",for:.normal)
         flashButton.translatesAutoresizingMaskIntoConstraints=false
-        
+
         flashButton.setImage(UIImage(named: "ic_flash_off", in: Bundle(for: SwiftFlutterBarcodeScannerPlugin.self), compatibleWith: nil),for:.normal)
-        
+
         flashButton.addTarget(self, action: #selector(BarcodeScannerViewController.flashButtonClicked), for: .touchUpInside)
         return flashButton
     }()
-    
+
     /// Create and return switch camera button
     private lazy var switchCameraButton : UIButton! = {
         let button = UIButton()
-        
+
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(UIImage(named: "ic_switch_camera", in: Bundle(for: SwiftFlutterBarcodeScannerPlugin.self), compatibleWith: nil),for: .normal)
         button.addTarget(self, action: #selector(BarcodeScannerViewController.switchCameraButtonClicked), for: .touchUpInside)
-        
+
         return button
     }()
-    
+
     
     /// Create and return cancel button
     public lazy var cancelButton: UIButton! = {
